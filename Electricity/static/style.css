@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Nav bar */
+.parent a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+/*head-Content */
+.headcontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .maincontent h1{
+        text-align:center;
+        font-size:50px;
+        margin-bottom: 20px;
+        margin-top: 2rem;
+        color: #004AAD;
+    }
+
+    /*Name*/
+    .maincontent input{
+        padding: 12px ;
+        margin: 3px 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .maincontent label{
+        font-size: 20px;
+        color: #004AAD;
+        font-weight: 500;
+    }
+}
+
+
