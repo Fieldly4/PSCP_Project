@@ -23,19 +23,28 @@
       <!--Content-->
         <div class="headcontent">
           <div class="maincontent">
-            <h1>คำนวณค่าไฟฟ้า</h1>
+            <h1>Electricity Charges</h1>
 
             <form id="calculate">
-              <label for="name">Appliance:</label> 
-              <input type="text" id="calculate" name="electrical"  placeholder="ชื่อเครื่องใช้ไฟฟ้า" required>
+              <label for="name" style="margin-left:-45px;">Appliance:</label> 
+              <input type="text" id="name_electrical" name="electrical"  placeholder="ชื่อเครื่องใช้ไฟฟ้า" required>
+              <input type="number" id="unit" name="unit electrical" style="width: 165px;" placeholder="จำนวนหน่วย(ยูนิต)" required>
               <!--Unit Watt BTU-->
-              <select class="unit" id="unit" name="unit" >
+              <br>
+              <label for="power" style="margin-left: -78px;">ElectricPower:</label>
+              <input type="number" id="power" name="power" placeholder="กำลังไฟฟ้า"required>
+              <select class="unit" id="watt_BTU" name="watt" >
                 <option value="watt">Watt</option>
                 <option value="BTU">BTU</option>
               </select>
               <br>
-              <label for="power">ElectricPower:</label>
-              <input type="number" id="power" name="power" placeholder="กำลังไฟฟ้า"required>
+              <label for="time">Time:</label>
+              <input type="number" id="time" name="time" placeholder="จำนวนชั่วโมงการใช้งาน">
+              <label for="unit_time" style="color:#ffc107;">Hours/Day</label>
+              <br>
+              <label for="total">Total:</label>
+              <input type="number" id="total" name="total" placeholder="จำนวนค่าไฟต่อเดือน">
+              <label for="unit_money" style="color: #ffc107;">Bath</label>
             </form>
 
           </div>
