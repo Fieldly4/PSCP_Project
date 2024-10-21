@@ -25,14 +25,14 @@
           <div class="maincontent">
             <h1>Electricity Charges</h1>
 
-            <form id="calculate">
+            <div id="calculate">
               <label for="name" style="margin-left:-45px;">Appliance:</label> 
-              <input type="text" id="name_electrical" name="electrical"  placeholder="ชื่อเครื่องใช้ไฟฟ้า" required>
-              <input type="number" id="unit" name="unit electrical" style="width: 165px;" placeholder="จำนวนหน่วย(ยูนิต)" required>
+              <input type="text" id="name_electrical" name="electrical"  placeholder="ชื่อเครื่องใช้ไฟฟ้า" >
+              <input type="number" id="unit" name="unit electrical" style="width: 165px;" placeholder="จำนวนหน่วย(ยูนิต)" >
               <!--Unit Watt BTU-->
               <br>
               <label for="power" style="margin-left: -78px;">ElectricPower:</label>
-              <input type="number" id="power" name="power" placeholder="กำลังไฟฟ้า"required>
+              <input type="number" id="power" name="power" placeholder="กำลังไฟฟ้า">
               <select class="unit" id="watt_BTU" name="watt" >
                 <option value="watt">Watt</option>
                 <option value="BTU">BTU</option>
@@ -42,11 +42,29 @@
               <input type="number" id="time" name="time" placeholder="จำนวนชั่วโมงการใช้งาน">
               <label for="unit_time" style="color:#ffc107;">Hours/Day</label>
               <br>
-              <h3 style="margin-top: 6px; margin-left:-22px;">Result: <p></p></h3> 
-            </form>
-
+              <h3 style="margin-top: 6px; margin-left:-22px;">Result: <p id="Resulted"> </p></h3> 
+            </div>
+              <button onclick="clicked()">Submit</button>
           </div>
         </div>
 
+        <!-- ตรงนี้คือ JS -->
+        <script>
+          let elect_name = document.getElementById("name_electrical");
+          let resulted = document.getElementById("Resulted");
+          let elect_power = document.getElementById("power");
+          let elect_time = document.getElementById("time");
+          let elect_unit = document.getElementById("unit");
+
+          
+          function calculated(){
+            bath = ((elect_power.value/1000)*elect_time.value) * unit.value
+            return bath
+          };
+
+          function clicked(){
+              resulted.textContent = calculated() + "บาท ต่อวัน"
+          };
+        </script>
 </body>
 </html>
