@@ -27,46 +27,49 @@
 
             <div id="calculate">
               <label for="name" style="margin-left:-45px;">Appliance:</label> 
-              <input type="text" id="name_electrical" name="electrical"  placeholder="ชื่อเครื่องใช้ไฟฟ้า" >
-              <input type="number" id="unit" name="unit electrical" style="width: 165px;" placeholder="จำนวนหน่วย(ยูนิต)" >
+              <input type="text" id="name_electrical" placeholder="ชื่อเครื่องใช้ไฟฟ้า" required>
+              <input type="number" id="unit" style="width: 165px;" placeholder="จำนวนหน่วย(ยูนิต)" required>
               <!--Unit Watt BTU-->
               <br>
               <label for="power" style="margin-left: -78px;">ElectricPower:</label>
-              <input type="number" id="power" name="power" placeholder="กำลังไฟฟ้า">
-              <select class="unit" id="watt_BTU" name="watt" >
-                <option value="watt">Watt</option>
+              <input type="number" id="power" placeholder="กำลังไฟฟ้า" required>
+              <select class="Watt_BTU" id="watt_BTU" >
+                <option value="Watt">Watt</option>
                 <option value="BTU">BTU</option>
               </select>
               <br>
-              <label for="time">Time:</label>
-              <input type="number" id="time" name="time" placeholder="จำนวนชั่วโมงการใช้งาน">
+              <label for="hours">Time:</label>
+              <input type="number" id="hours" placeholder="จำนวนชั่วโมงการใช้งาน" required>
               <label for="unit_time" style="color:#004AAD;">Hours/Day</label>
               <br>
               <div>
                 <h3 style="margin-top: 10px; margin-left: 55px; color:#004AAD;">Result:<p id="Resulted"> </p></h3>
               </div>
             </div>
-              <button onclick="clicked()" style="margin-top: 10px; margin-left: 132px; color:#004AAD;">Submit</button>
+              <button onclick="calculate()" style="margin-top: 10px; margin-left: 132px; color:#004AAD;">Submit</button>
           </div>
+          <h2 id="result" style="display:none;">ค่าไฟฟ้าต่อเดือน: <span id="total"></span> บาท</h2>
         </div>
 
         <!-- ตรงนี้คือ JS -->
         <script>
-          let elect_name = document.getElementById("name_electrical");
-          let resulted = document.getElementById("Resulted");
-          let elect_power = document.getElementById("power");
-          let elect_time = document.getElementById("time");
-          let elect_unit = document.getElementById("unit");
-
-          
-          function calculated(){
-            bath = ((elect_power.value/1000)*elect_time.value) * unit.value
-            return bath
-          };
-
-          function clicked(){
-              resulted.textContent = calculated() + "บาท ต่อวัน"
-          };
-        </script>
+          function calculate() {
+            const name_electrical = document.getElementById('name_electrical').value;
+            const power = parseFloat(document.getElementById('power').value);
+            const hours = parseFloat(document.getElementById('hours').value);
+            const unit = parseFloat(document.getElementById('unit').value);
+            const watt_BTU = document.getElementById('watt_BTU').value;
+  
+            let powerInWatts = power;
+            if (watt_BTU === 'BTU') {
+                // แปลง BTU เป็น Watt (1 BTU = 0.293071 Watt)
+                powerInWatts = power * 0.293071;
+            }
+            // คำนวณค่าไฟฟ้า
+            const total = powerInWatts * hours * unit;
+            document.getElementById('total').innerText = total.toFixed(2);
+            document.getElementById('result').style.display = 'block';
+          }
+      </script>
 </body>
 </html>
