@@ -28,7 +28,7 @@
             <div id="calculate">
               <label for="name" style="margin-left:-45px;">Appliance:</label> 
               <input type="text" id="name_electrical" placeholder="ชื่อเครื่องใช้ไฟฟ้า" required>
-              <input type="number" id="unit" style="width: 165px;" placeholder="จำนวนหน่วย(ยูนิต)" required>
+              <input type="number" id="unit_rate" style="width: 165px;" placeholder="ค่าไฟฟ้าต่อหน่วย" required>
               <!--Unit Watt BTU-->
               <br>
               <label for="power" style="margin-left: -78px;">ElectricPower:</label>
@@ -48,7 +48,7 @@
             </div>
               <button onclick="calculate()" style="margin-top: 10px; margin-left: 132px; color:#004AAD;">Submit</button>
           </div>
-          <h2 id="result" style="display:none;">ค่าไฟฟ้าต่อเดือน: <span id="total"></span> บาท</h2>
+          <h2 id="result" style="display:none;">ค่าไฟฟ้าต่อเดือน: <span id="total"></span> <span id="Appliance"></span> บาท</h2>
         </div>
 
         <!-- ตรงนี้คือ JS -->
@@ -57,7 +57,7 @@
             const name_electrical = document.getElementById('name_electrical').value;
             const power = parseFloat(document.getElementById('power').value);
             const hours = parseFloat(document.getElementById('hours').value);
-            const unit = parseFloat(document.getElementById('unit').value);
+            const unit_rate = parseFloat(document.getElementById('unit_rate').value);
             const watt_BTU = document.getElementById('watt_BTU').value;
   
             let powerInWatts = power;
@@ -66,7 +66,8 @@
                 powerInWatts = power * 0.293071;
             }
             // คำนวณค่าไฟฟ้า
-            const total = powerInWatts * hours * unit;
+            const dailyConsumption = (powerInWatts * hours) / 1000;
+            const total = dailyConsumption * unit_rate * 30;
             document.getElementById('total').innerText = total.toFixed(2);
             document.getElementById('result').style.display = 'block';
           }
