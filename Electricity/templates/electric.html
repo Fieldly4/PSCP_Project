@@ -50,27 +50,20 @@
           </div>
           <h2 id="result" style="display:none;">ค่าไฟฟ้าต่อเดือน: <span id="total"></span> <span id="Appliance"></span> บาท</h2>
         </div>
-
+        
+        <!-- ตรงนี้คือตาราง ลบปุ่มได้แต่อย่าลบอย่างอื่น -->
+        <center>
+          <table id="table">
+            <thead>
+                <tr>
+                    <th><button onclick="addtable()">Test</button></th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </center>
         <!-- ตรงนี้คือ JS -->
-        <script>
-          function calculate() {
-            const name_electrical = document.getElementById('name_electrical').value;
-            const power = parseFloat(document.getElementById('power').value);
-            const hours = parseFloat(document.getElementById('hours').value);
-            const unit_rate = parseFloat(document.getElementById('unit_rate').value);
-            const watt_BTU = document.getElementById('watt_BTU').value;
-  
-            let powerInWatts = power;
-            if (watt_BTU === 'BTU') {
-                // แปลง BTU เป็น Watt (1 BTU = 0.293071 Watt)
-                powerInWatts = power * 0.293071;
-            }
-            // คำนวณค่าไฟฟ้า
-            const dailyConsumption = (powerInWatts * hours) / 1000;
-            const total = dailyConsumption * unit_rate * 30;
-            document.getElementById('total').innerText = total.toFixed(2);
-            document.getElementById('result').style.display = 'block';
-          }
-      </script>
+        <script src="../static/script.js"></script>
 </body>
 </html>
