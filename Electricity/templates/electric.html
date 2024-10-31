@@ -42,26 +42,33 @@
               <input type="number" id="hours" placeholder="จำนวนชั่วโมงการใช้งาน" required>
               <label for="unit_time" style="color:#004AAD;">Hours/Day</label>
               <br>
-              <div>
-                <h3 style="margin-top: 10px; margin-left: 55px; color:#004AAD;">Result:<p id="Resulted"> </p></h3>
-              </div>
             </div>
-              <button onclick="calculate()" style="margin-top: 10px; margin-left: 132px; color:#004AAD;">Submit</button>
           </div>
-          <h2 id="result" style="display:none;">ค่าไฟฟ้าต่อเดือน: <span id="total"></span> <span id="Appliance"></span> บาท</h2>
         </div>
-        
+        <div style="text-align: center; margin-top: 5px;">
+          <button type="button" onclick="calculate()"class="btn btn-warning">Submit</button>
+          <button type="button" onclick="addtable()" class="btn btn-danger">ADD</button>
+          <label for="warning" style="font-weight:700;">ต้องกด Submit ก่อนถึงจะ ADD ได้</label>
+        </div>
+        <div>
+          <h2 id="result" style="display:none; text-align: center;">ค่าไฟฟ้าต่อเดือน: <span id="total">None</span> <span id="Appliance"></span> บาท</h2>
+        </div>
+        <br>
         <!-- ตรงนี้คือตาราง ลบปุ่มได้แต่อย่าลบอย่างอื่น -->
         <center>
-          <table id="table">
-            <thead>
+          <div class="blog-table">
+            <table id="table">
+              <thead>
                 <tr>
-                    <th><button onclick="addtable()">Test</button></th>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Total</th>
                 </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+          </div>
         </center>
         <!-- ตรงนี้คือ JS -->
         <script src="../static/script.js"></script>

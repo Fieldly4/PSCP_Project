@@ -24,7 +24,7 @@ function calculate() {
 //เพิ่่มตาราง รัน func นี้
 function addtable(){
     const itemName = document.getElementById('name_electrical').value;
-    const itemValue = parseFloat(document.getElementById('power').value);
+    const itemValue = parseFloat(document.getElementById('total').innerText);
     const count = num ;
 
     //เพิ่ม cell มาเพิ่มตรงนี้ 1
@@ -35,7 +35,6 @@ function addtable(){
     };
 
     items.push(newItem);
-
     addItemToTable(newItem);
 };
 
