@@ -1,6 +1,17 @@
+
 const items = [];
 let num = 1;
 const itemTableBody = document.getElementById('table').getElementsByTagName('tbody')[0];
+
+function showSEERinput(){
+    var selectType = document.getElementById("watt_BTU");
+    var SEER_show = document.getElementById("SEER_input");
+    if (selectType.value === "BTU"){
+        SEER_show.style.display = "block";
+    } else {
+        SEER_show.style.display = "none";
+    }
+}
 
 function calculate() {
     const name_electrical = document.getElementById('name_electrical').value;
