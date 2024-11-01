@@ -26,10 +26,13 @@ function showSEERinput(){
     var selectType = document.getElementById("watt_BTU");
     var SEER_show = document.getElementById("SEER_input");
     if (selectType.value === "BTU"){ //เมื่อกดปุ่ม btu จะแสดงค่า SEER ให้กรอก
-        SEER_show.style.display = "block"; 
+        SEER_show.style.display = "block";
+        SEER.required = true;
     } else {
         SEER_show.style.display = "none";
+        SEER.required = false;
     }
+    checkFormValidity();
 }
 
 function calculate() {
