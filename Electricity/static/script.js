@@ -2,6 +2,16 @@
 const items = [];
 let num = 1;
 const itemTableBody = document.getElementById('table').getElementsByTagName('tbody')[0];
+const submit_button=document.getElementById('submit');
+const add_button=document.getElementById('add')
+submit_button.addEventListener('click',function(){
+    guidance_text.style.display = 'inline';
+    add.style.display = 'inline-block';
+});
+add_button.addEventListener('click', function() {
+    guidance_text.style.display = 'none';
+    add_button.style.display = 'none';
+});
 
 function showSEERinput(){
     var selectType = document.getElementById("watt_BTU");

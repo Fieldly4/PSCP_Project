@@ -59,6 +59,15 @@
 
 }
 
+#SEER_input {
+    display: none; /* ซ่อนช่องกรอกค่า SEER */
+}
+#guidance_text{
+    display: none;/* ซ่อนlabelของ add */
+}
+#add {
+    display: none;/* ซ่อนปุ่ม add */
+}
 /* ตาราง */
 
 .blog-table {
