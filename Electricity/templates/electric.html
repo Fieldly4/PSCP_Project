@@ -36,7 +36,7 @@
               <input type="number" id="unit_rate" style="width: 165px;" placeholder="ค่าไฟฟ้าต่อหน่วย" required>
               <!--Unit Watt BTU-->
               <br>
-              <label for="power" style="margin-left: -78px;">ElectricPower:</label>
+              <label for="power" style="margin-left: -75px;">ElectricPower:</label>
               <input type="number" id="power" placeholder="กำลังไฟฟ้า" required>
               <select class="Watt_BTU" id="watt_BTU" onchange="showSEERinput()" >
                 <option value="p">กรุณาเลือก</option>
@@ -44,11 +44,12 @@
                 <option value="BTU">BTU</option>
               </select>
               <div id="SEER_input">
+                <label for="SEER" style="margin-left: -27px;">ค่า SEER:</label>
                 <input type="number" id="SEER" placeholder="ค่า SEER" min="0" step="1">
               </div>
               <br>
               <label for="hours">Time:</label>
-              <input type="number" id="hours" placeholder="จำนวนชั่วโมงการใช้งาน" required>
+              <input type="number" id="hours" placeholder="จำนวนชั่วโมงการใช้งาน" max="24" required>
               <label for="unit_time" style="color:#004AAD;">Hours/Day</label>
               <br>
             </div>

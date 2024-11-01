@@ -22,8 +22,9 @@ function calculate() {
 
     let powerInWatts = power;
     if (watt_BTU === 'BTU') {
-        // แปลง BTU เป็น Watt (1 BTU = 0.293071 Watt)
-        powerInWatts = power * 0.293071;
+        // แปลง BTU/SEER
+        const SEER = parseFloat(document.getElementById('SEER').value)
+        powerInWatts = power / SEER;
     }
     // คำนวณค่าไฟฟ้า
     const dailyConsumption = (powerInWatts * hours) / 1000;
