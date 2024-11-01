@@ -77,7 +77,6 @@ function addtable(){
 
     items.push(newItem);
     addItemToTable(newItem);
-    total_charges(itemValue);
 };
 
 function addItemToTable(item) {
