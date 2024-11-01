@@ -12,19 +12,27 @@ add_button.addEventListener('click', function() {
     guidance_text.style.display = 'none';
     add_button.style.display = 'none';
 });
+const form = document.getElementById('required_data');
+function checkFormValidity() {
+    // ตรวจสอบว่าแบบฟอร์มกรอกทุกค่า
+    const isValid = form.checkValidity();
+    submit_button.disabled = !isValid;
+}
+form.addEventListener('input', checkFormValidity);
+
+checkFormValidity();
 
 function showSEERinput(){
     var selectType = document.getElementById("watt_BTU");
     var SEER_show = document.getElementById("SEER_input");
-    if (selectType.value === "BTU"){
-        SEER_show.style.display = "block";
+    if (selectType.value === "BTU"){ //เมื่อกดปุ่ม btu จะแสดงค่า SEER ให้กรอก
+        SEER_show.style.display = "block"; 
     } else {
         SEER_show.style.display = "none";
     }
 }
 
 function calculate() {
-    const name_electrical = document.getElementById('name_electrical').value;
     const power = parseFloat(document.getElementById('power').value);
     const hours = parseFloat(document.getElementById('hours').value);
     const unit_rate = parseFloat(document.getElementById('unit_rate').value);

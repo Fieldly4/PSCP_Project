@@ -58,6 +58,10 @@
     }
 
 }
+button:disabled {
+    background-color: #ccc; /* สีปุ่มเมื่อไม่สามารถกดได้ */
+    cursor: not-allowed; /* เปลี่ยนรูปแบบ cursor */
+}
 
 #SEER_input {
     display: none; /* ซ่อนช่องกรอกค่า SEER */
@@ -68,6 +72,7 @@
 #add {
     display: none;/* ซ่อนปุ่ม add */
 }
+
 /* ตาราง */
 
 .blog-table {
